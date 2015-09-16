@@ -1,0 +1,79 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box; }
+
+html, body, ul, ol {
+  padding: 0;
+  margin: 0;
+  font-family: '微软雅黑';
+  font-size: 14px; }
+
+ul {
+  list-style: none; }
+
+.waterfall-container {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  overflow-y: auto;
+  width: calc(100% - 40px); }
+
+.waterfall-column {
+  float: left;
+  padding: 5px; }
+  .waterfall-column:empty {
+    display: none; }
+  .waterfall-column .item-box {
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 1px 2px #ddd;
+    -moz-box-shadow: 0 0 1px 2px #ddd;
+    -ms-box-shadow: 0 0 1px 2px #ddd;
+    -o-box-shadow: 0 0 1px 2px #ddd;
+    box-shadow: 0 0 1px 2px #ddd; }
+    .waterfall-column .item-box:hover {
+      border-color: rgba(83, 129, 214, 0.5); }
+  .waterfall-column .waterfall-item a {
+    width: 100%;
+    display: block;
+    overflow: hidden; }
+    .waterfall-column .waterfall-item a img {
+      display: block;
+      width: 100%;
+      border-radius: 40%/40%;
+      margin-left: auto;
+      margin-right: auto;
+      -webkit-transition: all 0.8s;
+      -moz-transition: all 0.8s;
+      -ms-transition: all 0.8s;
+      -o-transition: all 0.8s;
+      transition: all 0.8s; }
+      .waterfall-column .waterfall-item a img:hover {
+        border-radius: 50%/50%;
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg); }
+  .waterfall-column .item-des {
+    width: 100%;
+    padding: 3px 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 0.9em;
+    color: #444;
+    text-shadow: 0 0 1px 0 #ccc;
+    border-top: 1px solid #eee;
+    line-height: 32px;
+    height: 32px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s; }
+    .waterfall-column .item-des:hover {
+      color: #49BB86;
+      padding-left: 10px; }

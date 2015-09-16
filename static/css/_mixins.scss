@@ -1,0 +1,84 @@
+
+//是否支持IE
+$legacy-support-for-ie: false;
+//默认宽度
+$width: 960px !default;
+
+//css3浏览器通用前缀
+@mixin css3($property, $value) {
+  @each $prefix in -webkit-, -moz-, -ms-, -o-, ''{
+    #{$prefix}#{$property}: $value;
+  }
+}
+
+//css3变换
+@mixin transform($value) {
+  @include css3(transform,$value);
+}
+
+//css3过渡
+@mixin transition($value) {
+  @include css3(transition,$value);
+}
+
+//透明度
+@mixin opacity($opacity:50) {
+  opacity: $opacity/100;
+  @if $legacy-support-for-ie {
+    filter: alpha(opacity=$opacity)
+  }
+}
+
+//css居中
+@mixin horizontal-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//清除浮动
+@mixin clearfix {
+  @if $legacy-support-for-ie {
+    *zoom: 1;
+  }
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+    overflow: hidden;
+  }
+}
+
+%clearfix {
+  @include clearfix;
+}
+
+//截取文本
+@mixin singleline-ellipsis($width:0) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100% - $width;
+}
+
+%singleline-ellipsis {
+  @include singleline-ellipsis;
+}
+
+//禁用样式
+@mixin disabled($bgColor:#e6e6e6,$textColor:#ababab){
+  background-color: $bgColor !important;
+  color: $textColor !important;
+  cursor: not-allowed !important;
+}
+
+//绝对定位
+@mixin abs-pos($top:auto,$right:auto,$bottom:auto,$left:auto){
+  top: $top;
+  right:$right;
+  bottom: $bottom;
+  left:$left;
+  position: absolute;
+}
